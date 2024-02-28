@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.awt.Color.*;
+
 /**
- * Write a description of class Score here.
+ * Write a description of class Counter here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -9,18 +9,22 @@ import java.awt.Color.*;
 public class Counter extends Actor
 {
     private int totalCount = 0;
-    public Counter()
+    /**
+     * Act - do whatever the Counter wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void Counter() 
     {
-        setImage(new GreenfootImage("Presents: " + totalCount, 40, Color.BLACK, Color.RED));
+        setImage(new GreenfootImage("Stars: " + totalCount, 40, Color.BLUE , Color.RED));
+    }  
+    public void act(){
+        
     }
-    public void act() 
-    {
-      
-    }
-    public void bumpCount(int amount)
+    public void caughtCount(int amount) 
     {
         totalCount += amount;
-        setImage(new GreenfootImage("Presents: " + totalCount, 40, Color.BLACK, Color.RED));
+        setImage(new GreenfootImage("Stars: " + totalCount, 40, Color.BLUE, Color.RED));
     }
-    
 }
+        
+

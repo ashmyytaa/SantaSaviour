@@ -8,30 +8,38 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Santa extends Actor
 {
-    /**
+    
+/**
      * Act - do whatever the Santa wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-      public void act() 
+    public void act() 
     {
-       //move (4); 
-        if (Greenfoot.isKeyDown("left")) {
-        turn (-3);
+        move(); // calling the move method 
+        eat();
+        
+
     }
-        if (Greenfoot.isKeyDown("right")) {
-        turn (3);    
-    }    
-    if (Greenfoot.isKeyDown("up")) {
-        move (10);
-    }
-    if (Greenfoot.isKeyDown("down")) {
-        move (-10);
-    }
-   }
-    public Santa()
+public void move()
+    { 
+        if(Greenfoot.isKeyDown("Up")) 
+      {
+           setLocation(getX(), getY()-10);
+      }
+      if(Greenfoot.isKeyDown("Down"))
+      {
+           setLocation(getX(), getY()+10);
+      }
+    }   
+public void eat()
     {
-        GreenfootImage image = getImage();
-        image.scale(70,50);
-        setImage(image);
-   }
+        Actor star = getOneIntersectingObject(Star.class);
+        if (star != null){
+            World santaBackground = getWorld();
+            santaBackground.removeObject(star); 
+            Counter counter = santaBackground.getCounter();
+            counter.caughtCount(1);
+         
+        }
+    }
 }
